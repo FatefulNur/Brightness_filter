@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Change Input Brightness</title>
+	<link rel="stylesheet" href="C:\Users\Dell\Downloads\fontawesome-free-5.12.1-web\fontawesome-free-5.12.1-web\css\all.css"></link>
+	<link rel="stylesheet" type="text/css" href="brightness.css" media="all" />
+</head>
+<body>
+	<div class="container">
+		<div class="brightness-box">
+			<i class="far fa-sun"></i>
+			<input type="range" name="" id="range" min="5" max="100" value="100"/>
+			<i class="fas fa-sun"></i>
+		</div>
+		<div id="value-box">Value : <span id="spa">100%</span></div>
+	</div>
+	<script type="text/javascript">
+		var rangeInput = document.getElementById('range'),
+		container = document.getElementsByClassName('container')[0];
+		rangeInput.addEventListener('input',function(){
+			container.style.filter = "brightness(" + rangeInput.value + "%)";
+		});
+		rangeInput.addEventListener('input',function(){
+			let output = document.getElementById('spa');
+			output.innerHTML = this.value + "%";
+		});
+		rangeInput.addEventListener('mousemove',function(){
+			var x = rangeInput.value;
+			var color = "linear-gradient(90deg,rgb(43, 130, 206)" + x +  "%,rgb(221, 221, 221)" + x +  "%)";
+			
+			rangeInput.style.background = color;
+		});
+		
+	</script>
+</body>
+</html>
